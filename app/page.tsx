@@ -1,13 +1,15 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import ShopList from "@/components/ShopList";
+import ShopsCombobox from "@/components/ShopsCombobox";
 
 export default function Home() {
   return (
-    <main className="p-24">
-      <div>
-        <h2>ようこそ仮webサイトへ</h2>
+    <main className="pt-5">
+      <div className="flex justify-center">
+        <div>
+          <ShopsCombobox />
+          <ShopList />
+        </div>
       </div>
-      <Button>Click Here</Button>
     </main>
   );
 }
