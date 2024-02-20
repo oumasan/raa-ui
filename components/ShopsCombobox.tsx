@@ -47,7 +47,7 @@ const ShopsCombobox = () => {
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild className="w-4/5 md:w-48 lg:w-96">
+      <PopoverTrigger asChild className="w-4/5 md:w-48 lg:w-96 mb-10">
         <Button
           variant="outline"
           role="combobox"
