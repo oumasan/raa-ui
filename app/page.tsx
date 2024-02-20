@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className="pt-5">
       <div className="flex justify-center">
-        <div>
+        <div className="">
           <ShopsCombobox />
           <ShopList />
         </div>
