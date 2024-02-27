@@ -41,13 +41,15 @@ const shops = [
   },
 ]
 
-const ShopsCombobox = () => {
+const ShopsCombobox = (props: any) => {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
 
+  const shopList = {...props.props}.shopList
+
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild className="w-4/5 md:w-48 lg:w-96 mb-10">
+      <PopoverTrigger asChild className="w-4/5 md:w-48 lg:w-96 mb-5 lg:mb-10">
         <Button
           variant="outline"
           role="combobox"
@@ -55,7 +57,7 @@ const ShopsCombobox = () => {
           className="w-[200px] justify-between"
         >
           {value
-            ? shops.find((shop) => shop.value === value)?.label
+            ? shopList.find((shop: any) => shop.name === value)?.display
             : "ショップ名を選択"}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
@@ -63,12 +65,12 @@ const ShopsCombobox = () => {
       <PopoverContent className="w-4/5 md:w-48 lg:w-96 p-0">
         <Command>
           <CommandInput placeholder="検索" />
-          <CommandEmpty>No framework found.</CommandEmpty>
+          <CommandEmpty>店舗が見つかりません。</CommandEmpty>
           <CommandGroup>
-            {shops.map((shop) => (
+            {shopList.map((shop: any) => (
               <CommandItem
-                key={shop.value}
-                value={shop.value}
+                key={shop.id}
+                value={shop.name}
                 onSelect={(currentValue) => {
                   setValue(currentValue === value ? "" : currentValue)
                   setOpen(false)
@@ -80,7 +82,7 @@ const ShopsCombobox = () => {
                     value === shop.value ? "opacity-100" : "opacity-0"
                   )}
                 />
-                {shop.label}
+                {shop.display}
               </CommandItem>
             ))}
           </CommandGroup>
