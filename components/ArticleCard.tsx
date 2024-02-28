@@ -6,16 +6,19 @@ import {
   CardContent,
   CardDescription,
   CardFooter,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card"
 import ShopsData from "@/assets/json/shops.json";
+import { useRouter } from "next/navigation"
 
-const ShopCard = (props: any) => {
+const ArticleCard = (props: any) => {
   const article = {...props.props}
   const shop = ShopsData.shopList.find(shop => shop.id === article.shopId)
+  const router = useRouter()
   return (
-    <Card className="w-[280px] lg:w-[350px]">
+    <Card className="w-[280px] lg:w-[350px]"
+      onClick={ () => {router.push(`/article/${article.id}`)}}
+    >
       <CardContent>
         <Image
           src={article.image ? `/article/${article.image}` : NoImage}
@@ -35,4 +38,4 @@ const ShopCard = (props: any) => {
   )
 }
 
-export default ShopCard;
+export default ArticleCard;

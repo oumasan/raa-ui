@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className="pt-5">
       <div className="flex justify-center">
-        <div className="">
+        <div className="grid place-items-center">
           <ShopsCombobox props={ShopsData}/>
           <ShopList props={ArticleData}/>
         </div>

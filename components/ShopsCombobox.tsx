@@ -18,29 +18,6 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
-const shops = [
-  {
-    value: "next.js",
-    label: "Next.js",
-  },
-  {
-    value: "sveltekit",
-    label: "SvelteKit",
-  },
-  {
-    value: "nuxt.js",
-    label: "Nuxt.js",
-  },
-  {
-    value: "remix",
-    label: "Remix",
-  },
-  {
-    value: "astro",
-    label: "Astro",
-  },
-]
-
 const ShopsCombobox = (props: any) => {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
@@ -62,7 +39,7 @@ const ShopsCombobox = (props: any) => {
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-4/5 md:w-48 lg:w-96 p-0">
+      <PopoverContent className="w-max md:w-48 lg:w-96 p-0">
         <Command>
           <CommandInput placeholder="検索" />
           <CommandEmpty>店舗が見つかりません。</CommandEmpty>
